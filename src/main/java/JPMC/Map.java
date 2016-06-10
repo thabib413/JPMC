@@ -39,7 +39,7 @@ public class Map {
     String sixty = "Sixty";
     String seventy = "Seventy";
     String eighty = "Eighty";
-    String ninety = "ninety";
+    String ninety = "Ninety";
 
     HashMap<String, String> intToString3 = new HashMap<String, String>();
 
@@ -88,7 +88,6 @@ public class Map {
         intToString3.put("1000", thousand);
         intToString3.put("1000000", million);
         intToString3.put("1000000000", billion);
-
     }
 
 

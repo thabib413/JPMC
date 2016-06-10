@@ -20,73 +20,213 @@ public class ConversionStrategy {
         int intValue = Integer.parseInt(value);
         int valueLength = String.valueOf(value).length();
         int firstIndex;
+        String firstIndexValue;
         String stringFirstIndex;
+
         int secondIndex;
+        String secondIndexValue;
         String stringSecondIndex;
+
         int thirdIndex;
+        String thirdIndexValue;
         String stringThirdIndex;
+
         int fourthIndex;
+        String fourthIndexValue;
+        String stringFourthIndex;
+
+        int fifthIndex;
+        String fifthIndexValue;
+        String stringFifthIndex;
+
+        int sixthIndex;
+        String sixhIndexValue;
+        String stringSixthIndex;
+
+        int seventhIndex;
+        String seventhIndexValue;
+        String stringSeventhIndex;
 
         int i;
+
+        StringBuilder stringBuilder = new StringBuilder();
 
         switch(valueLength) {
 
             case 1:         //for values with length 1
-                if (valueLength == 1) {
-                    StringBuilder stringBuilder = new StringBuilder();
                     convertedValue = mappedData.intToString1.get(value);
                     stringBuilder.append(convertedValue).append("Dollars");
                     convertedValue = stringBuilder.toString();
 
                     returnedValue = convertedValue;
-                    convertedValue = null;
-                    stringBuilder = null;
-                }
+                    //convertedValue = null;
 
-            case 2: //for values with length 2
+                break;
 
 
-                if (valueLength==2 && intValue > 19){
-                    StringBuilder stringBuilder = new StringBuilder();
-                    switch(value) {
-                            case "11": convertedValue = mappedData.intToString1.get(value);
-                            case "12": convertedValue = mappedData.intToString1.get(value);
-                            case "13": convertedValue = mappedData.intToString1.get(value);
-                            case "14": convertedValue = mappedData.intToString1.get(value);
-                            case "15": convertedValue = mappedData.intToString1.get(value);
-                            case "16": convertedValue = mappedData.intToString1.get(value);
-                            case "17": convertedValue = mappedData.intToString1.get(value);
-                            case "18": convertedValue = mappedData.intToString1.get(value);
-                            case "19": convertedValue = mappedData.intToString1.get(value);
-                            default: break;
-                        }
+            case 2: { //for values with length 2
 
-                        stringBuilder.append(convertedValue).append("Dollars");
-                        returnedValue = stringBuilder.toString();
-                        return returnedValue;
-                    } else {
+                if (intValue < 21) {
 
-                    firstIndex=Integer.parseInt(String.valueOf(value.charAt(0)));
+                    switch (value) {
+                        case "11":
+                            convertedValue = mappedData.intToString1.get("11");
+                            break;
+                        case "12":
+                            convertedValue = mappedData.intToString1.get("12");
+                            break;
+                        case "13":
+                            convertedValue = mappedData.intToString1.get("13");
+                            break;
+                        case "14":
+                            convertedValue = mappedData.intToString1.get("14");
+                            break;
+                        case "15":
+                            convertedValue = mappedData.intToString1.get("15");
+                            break;
+                        case "16":
+                            convertedValue = mappedData.intToString1.get("16");
+                            break;
+                        case "17":
+                            convertedValue = mappedData.intToString1.get("17");
+                            break;
+                        case "18":
+                            convertedValue = mappedData.intToString1.get("18");
+                            break;
+                        case "19":
+                            convertedValue = mappedData.intToString1.get("19");
+                            break;
+                        case "20":
+                            convertedValue = mappedData.intToString2.get("2");
+                        default:
+                            break;
+                    }
 
-                }
+                    stringBuilder.append(convertedValue).append("Dollars");
+                    returnedValue = stringBuilder.toString();
+                    //return returnedValue;
 
-            case 3: // for values with length 3
+                } else if (valueLength == 2 && intValue > 20) {
 
-                if(valueLength == 3){
-                    StringBuilder stringBuilder = new StringBuilder();
                     firstIndex = Integer.parseInt(String.valueOf(value.charAt(0)));
-                    stringFirstIndex = mappedData.intToString3.get(firstIndex);
-                    stringBuilder.append(stringFirstIndex);
+                    switch (firstIndex) {
+                        case 2:
+                            convertedValue = mappedData.intToString2.get("2");
+                            break;
+                        case 3:
+                            convertedValue = mappedData.intToString2.get("3");
+                            break;
+                        case 4:
+                            convertedValue = mappedData.intToString2.get("4");
+                            break;
+                        case 5:
+                            convertedValue = mappedData.intToString2.get("5");
+                            break;
+                        case 6:
+                            convertedValue = mappedData.intToString2.get("6");
+                            break;
+                        case 7:
+                            convertedValue = mappedData.intToString2.get("7");
+                            break;
+                        case 8:
+                            convertedValue = mappedData.intToString2.get("8");
+                            break;
+                        case 9:
+                            convertedValue = mappedData.intToString2.get("9");
+                            break;
+                        default:
+                            break;
+                    }
 
                     secondIndex = Integer.parseInt(String.valueOf(value.charAt(1)));
-                    stringSecondIndex = mappedData.intToString2.get(secondIndex);
-                    stringBuilder.append(stringSecondIndex);
+                    secondIndexValue = Integer.toString(secondIndex);
+                    stringSecondIndex = mappedData.intToString1.get(secondIndexValue);
+                    stringBuilder.append(convertedValue).append(stringSecondIndex).append("Dollars");
+                    returnedValue = stringBuilder.toString();
 
-                    thirdIndex = Integer.parseInt(String.valueOf(value.charAt(2)));
-                    stringThirdIndex = mappedData.intToString1.get(thirdIndex);
-                    stringBuilder.append(stringThirdIndex);
 
                 }
+            } break;
+
+            case 3: { // for values with length 3
+
+                firstIndex = Integer.parseInt(String.valueOf(value.charAt(0)));
+                firstIndexValue = Integer.toString(firstIndex);
+                stringFirstIndex = mappedData.intToString1.get(firstIndexValue);
+                stringBuilder.append(stringFirstIndex).append(mappedData.intToString3.get("100"));
+
+                secondIndex = Integer.parseInt(String.valueOf(value.charAt(1)));
+                secondIndexValue = Integer.toString(secondIndex);
+                stringSecondIndex = mappedData.intToString2.get(secondIndexValue);
+                stringBuilder.append(stringSecondIndex);
+
+                thirdIndex = Integer.parseInt(String.valueOf(value.charAt(2)));
+                thirdIndexValue = Integer.toString(thirdIndex);
+                stringThirdIndex = mappedData.intToString1.get(thirdIndexValue);
+                stringBuilder.append(stringThirdIndex);
+
+                stringBuilder.append("Dollars");
+                returnedValue = stringBuilder.toString();
+            } break;
+
+            case 4: {
+                firstIndex = Integer.parseInt(String.valueOf(value.charAt(0)));
+                firstIndexValue = Integer.toString(firstIndex);
+                stringFirstIndex = mappedData.intToString1.get(firstIndexValue);
+                stringBuilder.append(stringFirstIndex).append(mappedData.intToString3.get("1000"));
+
+                secondIndex = Integer.parseInt(String.valueOf(value.charAt(1)));
+                secondIndexValue = Integer.toString(secondIndex);
+                stringSecondIndex = mappedData.intToString1.get(secondIndexValue);
+                stringBuilder.append(stringSecondIndex).append(mappedData.intToString3.get("100"));
+
+                thirdIndex = Integer.parseInt(String.valueOf(value.charAt(2)));
+                thirdIndexValue = Integer.toString(thirdIndex);
+                stringThirdIndex = mappedData.intToString2.get(thirdIndexValue);
+                stringBuilder.append(stringThirdIndex);
+
+                fourthIndex = Integer.parseInt(String.valueOf(value.charAt(3)));
+                fourthIndexValue = Integer.toString(fourthIndex);
+                stringFourthIndex = mappedData.intToString1.get(fourthIndexValue);
+                stringBuilder.append(stringFourthIndex);
+
+                stringBuilder.append("Dollars");
+                returnedValue = stringBuilder.toString();
+            } break;
+
+            case 5: {
+                firstIndex = Integer.parseInt(String.valueOf(value.charAt(0)));
+                int firstIndexA = Integer.parseInt(String.valueOf(value.charAt(1)));
+                stringBuilder.append(firstIndex).append(firstIndexA);
+                String firstIndexB = stringBuilder.toString();
+
+                stringFirstIndex = mappedData.intToString1.get(firstIndexB);
+                stringBuilder.delete(0,2);
+
+                stringBuilder.append(stringFirstIndex).append(mappedData.intToString3.get("1000"));
+
+                secondIndex = Integer.parseInt(String.valueOf(value.charAt(2)));
+                secondIndexValue = Integer.toString(secondIndex);
+                stringSecondIndex = mappedData.intToString1.get(secondIndexValue);
+                stringBuilder.append(stringSecondIndex).append(mappedData.intToString3.get("100"));
+
+                thirdIndex = Integer.parseInt(String.valueOf(value.charAt(3)));
+                thirdIndexValue = Integer.toString(thirdIndex);
+                stringThirdIndex = mappedData.intToString2.get(thirdIndexValue);
+                stringBuilder.append(stringThirdIndex);
+
+                fourthIndex = Integer.parseInt(String.valueOf(value.charAt(4)));
+                fourthIndexValue = Integer.toString(fourthIndex);
+                stringFourthIndex = mappedData.intToString1.get(fourthIndexValue);
+                stringBuilder.append(stringFourthIndex);
+
+                stringBuilder.append("Dollars");
+                returnedValue = stringBuilder.toString();
+
+            } break;
+
+
+
             default: break;
                 }
 
@@ -94,29 +234,3 @@ public class ConversionStrategy {
     }
 }
 
-        /*
-        for(i=0; i<value.length(); i++){
-            char indexedValue = value.charAt(i);
-            String testString = String.valueOf(indexedValue);
-
-            convertedValue = mappedData.intToString.get(testString);
-            stringBuilder.append(convertedValue);
-            if(i<value.length()-1){
-                stringBuilder.append(" ");
-            }
-        }
-        returnedValue = stringBuilder.toString();
-        return returnedValue;
-
-    }
-
-
-}
-*/
-
- /*
-                    stringFirstIndex = Integer.toString(firstIndex);
-                    convertedValue = mappedData.intToString.get(stringFirstIndex);
-                    secondIndex = Integer.parseInt(String.valueOf(value.charAt(1)));
-                    stringSecondIndex = Integer.toString(secondIndex);
-                    */

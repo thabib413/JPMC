@@ -1,5 +1,6 @@
 package JPMC;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -12,7 +13,7 @@ public class MapSpec {
         testMap.firstMappedValues();
         String exp = "One";
         String act = testMap.intToString1.get("1");
-        System.out.println(act);
+        Assert.assertEquals(exp, act);
     }
 
     @Test
@@ -21,16 +22,16 @@ public class MapSpec {
         testMap.secondMappedValues();
         String exp = "Twenty";
         String act = testMap.intToString2.get("2");
-        System.out.println(act);
+        Assert.assertEquals(exp, act);
     }
 
     @Test
     public void intTest3 (){
         Map testMap = new Map();
         testMap.thirdMappedValues();
-        String exp = "Hundred";
-        String act = testMap.intToString3.get("100");
-        System.out.println(act);
+        String exp = "Billion";
+        String act = testMap.intToString3.get("1000000000");
+        Assert.assertEquals(exp, act);
     }
 
 
